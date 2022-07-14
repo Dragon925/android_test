@@ -31,9 +31,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
+                android:minHeight="280dp"
                 app:layout_collapseMode="parallax">
 
                 <ImageView
+                    android:id="@+id/iv_app_bar_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/bg_app_bar"
@@ -82,6 +84,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:behavior_overlapTop="24dp"
@@ -110,66 +113,26 @@
                 android:layout_margin="12dp"
                 tools:text="DoTA 2"/>
 
-            <ImageView
-                android:id="@+id/iv_star_1"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+            <RatingBar
+                style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                android:id="@+id/rb_rating_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tv_name"
                 app:layout_constraintStart_toStartOf="@id/tv_name"
-                app:layout_constraintEnd_toStartOf="@id/iv_star_2"
                 android:layout_marginTop="7dp"
-                android:src="@drawable/ic_star"/>
-
-            <ImageView
-                android:id="@+id/iv_star_2"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintTop_toTopOf="@id/iv_star_1"
-                app:layout_constraintBottom_toBottomOf="@id/iv_star_1"
-                app:layout_constraintStart_toEndOf="@id/iv_star_1"
-                app:layout_constraintEnd_toStartOf="@id/iv_star_3"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_star"/>
-
-            <ImageView
-                android:id="@+id/iv_star_3"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintTop_toTopOf="@id/iv_star_1"
-                app:layout_constraintBottom_toBottomOf="@id/iv_star_1"
-                app:layout_constraintStart_toEndOf="@id/iv_star_2"
-                app:layout_constraintEnd_toStartOf="@id/iv_star_4"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_star"/>
-
-            <ImageView
-                android:id="@+id/iv_star_4"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintTop_toTopOf="@id/iv_star_1"
-                app:layout_constraintBottom_toBottomOf="@id/iv_star_1"
-                app:layout_constraintStart_toEndOf="@id/iv_star_3"
-                app:layout_constraintEnd_toStartOf="@id/iv_star_5"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_star"/>
-
-            <ImageView
-                android:id="@+id/iv_star_5"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintTop_toTopOf="@id/iv_star_1"
-                app:layout_constraintBottom_toBottomOf="@id/iv_star_1"
-                app:layout_constraintStart_toEndOf="@id/iv_star_4"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_star"/>
+                tools:rating="4.9"
+                android:numStars="5"
+                android:progressTint="#F4D144"
+                android:isIndicator="true"/>
 
             <TextView
                 style="@style/GameReview.Count.Small"
                 android:id="@+id/tv_review_count_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/iv_star_5"
-                app:layout_constraintStart_toEndOf="@id/iv_star_5"
+                app:layout_constraintTop_toTopOf="@id/rb_rating_1"
+                app:layout_constraintStart_toEndOf="@id/rb_rating_1"
                 android:layout_marginStart="10dp"
                 tools:text="70M"/>
 
@@ -181,27 +144,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="23dp"
-                app:chipSpacingHorizontal="10dp">
-
-                <com.google.android.material.chip.Chip
-                    style="@style/GameTag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="moba"/>
-
-                <com.google.android.material.chip.Chip
-                    style="@style/GameTag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="multiplayer"/>
-
-                <com.google.android.material.chip.Chip
-                    style="@style/GameTag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="strategy"/>
-
-            </com.google.android.material.chip.ChipGroup>
+                app:chipSpacingHorizontal="10dp"/>
 
             <TextView
                 style="@style/GameDescription"
@@ -236,67 +179,27 @@
                 android:layout_marginTop="12dp"
                 tools:text="4.9"/>
 
-            <ImageView
-                android:id="@+id/iv_star_6"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+            <RatingBar
+                style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                android:id="@+id/rb_rating_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tv_review_title"
                 app:layout_constraintStart_toEndOf="@id/tv_rating"
-                app:layout_constraintEnd_toStartOf="@id/iv_star_7"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="29dp"
-                android:src="@drawable/ic_star"/>
-
-            <ImageView
-                android:id="@+id/iv_star_7"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintTop_toTopOf="@id/iv_star_6"
-                app:layout_constraintBottom_toBottomOf="@id/iv_star_6"
-                app:layout_constraintStart_toEndOf="@id/iv_star_6"
-                app:layout_constraintEnd_toStartOf="@id/iv_star_8"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_star"/>
-
-            <ImageView
-                android:id="@+id/iv_star_8"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintTop_toTopOf="@id/iv_star_6"
-                app:layout_constraintBottom_toBottomOf="@id/iv_star_6"
-                app:layout_constraintStart_toEndOf="@id/iv_star_7"
-                app:layout_constraintEnd_toStartOf="@id/iv_star_9"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_star"/>
-
-            <ImageView
-                android:id="@+id/iv_star_9"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintTop_toTopOf="@id/iv_star_6"
-                app:layout_constraintBottom_toBottomOf="@id/iv_star_6"
-                app:layout_constraintStart_toEndOf="@id/iv_star_8"
-                app:layout_constraintEnd_toStartOf="@id/iv_star_10"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_star"/>
-
-            <ImageView
-                android:id="@+id/iv_star_10"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintTop_toTopOf="@id/iv_star_6"
-                app:layout_constraintBottom_toBottomOf="@id/iv_star_6"
-                app:layout_constraintStart_toEndOf="@id/iv_star_9"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_star"/>
+                android:layout_marginTop="28dp"
+                tools:rating="4.9"
+                android:numStars="5"
+                android:progressTint="#F4D144"
+                android:isIndicator="true"/>
 
             <TextView
                 style="@style/GameReview.Count.Full"
                 android:id="@+id/tv_review_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/iv_star_6"
-                app:layout_constraintStart_toStartOf="@id/iv_star_6"
+                app:layout_constraintTop_toBottomOf="@id/rb_rating_2"
+                app:layout_constraintStart_toStartOf="@id/rb_rating_2"
                 android:layout_marginTop="8dp"
                 tools:text="70M Reviews"/>
 
@@ -312,106 +215,26 @@
                 android:layout_marginEnd="13dp"
                 app:dividerColor="#1A1F29"/>
 
-            <ImageView
-                android:id="@+id/iv_avatar_1"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_review_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/divider"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/avatar_user_1"/>
+                tools:listitem="@layout/item_review"/>
 
-            <TextView
-                style="@style/GameReview.Author"
-                android:id="@+id/tv_review_author_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/divider"
-                app:layout_constraintStart_toEndOf="@id/iv_avatar_1"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                tools:text="Auguste Conte"/>
-
-            <TextView
-                style="@style/GameReview.Date"
-                android:id="@+id/tv_review_date_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_review_author_1"
-                app:layout_constraintStart_toStartOf="@id/tv_review_author_1"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="7dp"
-                tools:text="February 14, 2019"/>
-
-            <TextView
-                style="@style/GameReview.Text"
-                android:id="@+id/tv_review_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/iv_avatar_1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="16dp"
-                tools:text="“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"/>
-
-            <ImageView
-                android:id="@+id/iv_avatar_2"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_review_1"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="14dp"
-                android:src="@drawable/avatar_user_2"/>
-
-            <TextView
-                style="@style/GameReview.Author"
-                android:id="@+id/tv_review_author_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_review_1"
-                app:layout_constraintStart_toEndOf="@id/iv_avatar_2"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="16dp"
-                tools:text="Jang Marcelino"/>
-
-            <TextView
-                style="@style/GameReview.Date"
-                android:id="@+id/tv_review_date_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_review_author_2"
-                app:layout_constraintStart_toStartOf="@id/tv_review_author_2"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="7dp"
-                tools:text="February 14, 2019"/>
-
-            <TextView
-                style="@style/GameReview.Text"
-                android:id="@+id/tv_review_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/iv_avatar_2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="16dp"
-                tools:text="“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"/>
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/InstallButton"
-                android:id="@+id/mb_install"
+            <Space
+                android:id="@+id/spacer_install"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_review_2"
+                app:layout_constraintTop_toBottomOf="@id/rv_review_list"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="36dp"
-                app:cornerRadius="12dp"
-                android:backgroundTint="#F4D144"
-                android:text="@string/install_btn"/>
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="36dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -426,18 +249,18 @@
         android:layout_gravity="top|start"
         android:layout_marginStart="24dp"
         app:cardCornerRadius="14dp"
-        app:cardBackgroundColor="#1F2430"
+        app:cardBackgroundColor="@android:color/transparent"
         app:layout_dodgeInsetEdges="bottom"
         android:elevation="6dp">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_icon">
+            android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="54dp"
-                android:layout_height="54dp"
+                android:id="@+id/iv_logo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:src="@drawable/icon"/>
 
@@ -451,5 +274,26 @@
         app:layout_anchor="@id/spacer_icon_place"
         app:layout_anchorGravity="bottom"
         app:layout_insetEdge="bottom"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_anchor="@id/spacer_install"
+        app:layout_anchorGravity="top"
+        app:layout_insetEdge="top"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/InstallButton"
+        android:id="@+id/mb_install2"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginHorizontal="24dp"
+        app:cornerRadius="12dp"
+        android:backgroundTint="#F4D144"
+        android:layout_gravity="bottom|center"
+        android:text="@string/install_btn"
+        app:layout_anchor="@id/spacer_install"
+        app:layout_anchorGravity="center"
+        app:layout_dodgeInsetEdges="top"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
