@@ -1,11 +1,455 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/black"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity"
+    tools:ignore="contentDescription">
 
     <!-- Место для верстки -->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="@color/black"
+            app:statusBarScrim="@android:color/transparent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_app_bar"
+                    android:scaleType="centerCrop"
+                    android:fitsSystemWindows="true"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="126dp"
+                    android:background="@drawable/bg_status_bar"
+                    android:fitsSystemWindows="true"/>
+
+                <ImageButton
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_button"
+                    android:src="@drawable/ic_arrow_left"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="56dp"/>
+
+                <ImageButton
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_button"
+                    android:src="@drawable/ic_more_square"
+                    android:layout_gravity="top|end"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="56dp"/>
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:behavior_overlapTop="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@drawable/bg_page">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="24dp">
+
+            <Space
+                android:id="@+id/spacer_icon_place"
+                android:layout_width="88dp"
+                android:layout_height="66dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                style="@style/GameTitle"
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/spacer_icon_place"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="12dp"
+                tools:text="DoTA 2"/>
+
+            <ImageView
+                android:id="@+id/iv_star_1"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintEnd_toStartOf="@id/iv_star_2"
+                android:layout_marginTop="7dp"
+                android:src="@drawable/ic_star"/>
+
+            <ImageView
+                android:id="@+id/iv_star_2"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_star_1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star_1"
+                app:layout_constraintStart_toEndOf="@id/iv_star_1"
+                app:layout_constraintEnd_toStartOf="@id/iv_star_3"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_star"/>
+
+            <ImageView
+                android:id="@+id/iv_star_3"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_star_1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star_1"
+                app:layout_constraintStart_toEndOf="@id/iv_star_2"
+                app:layout_constraintEnd_toStartOf="@id/iv_star_4"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_star"/>
+
+            <ImageView
+                android:id="@+id/iv_star_4"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_star_1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star_1"
+                app:layout_constraintStart_toEndOf="@id/iv_star_3"
+                app:layout_constraintEnd_toStartOf="@id/iv_star_5"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_star"/>
+
+            <ImageView
+                android:id="@+id/iv_star_5"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_star_1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star_1"
+                app:layout_constraintStart_toEndOf="@id/iv_star_4"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_star"/>
+
+            <TextView
+                style="@style/GameReview.Count.Small"
+                android:id="@+id/tv_review_count_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/iv_star_5"
+                app:layout_constraintStart_toEndOf="@id/iv_star_5"
+                android:layout_marginStart="10dp"
+                tools:text="70M"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_tags_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/spacer_icon_place"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="23dp"
+                app:chipSpacingHorizontal="10dp">
+
+                <com.google.android.material.chip.Chip
+                    style="@style/GameTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="moba"/>
+
+                <com.google.android.material.chip.Chip
+                    style="@style/GameTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="multiplayer"/>
+
+                <com.google.android.material.chip.Chip
+                    style="@style/GameTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="strategy"/>
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                style="@style/GameDescription"
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cg_tags_list"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="24dp"
+
+                tools:text="Dota 2 is a multiplayer online battle arena (MOBA) game which has two teams of five players compete to collectively destroy a large structure defended by the opposing team known as the 'Ancient', whilst defending their own."/>
+
+            <TextView
+                style="@style/GameReview.Title"
+                android:id="@+id/tv_review_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+
+                android:text="@string/review_ratings_title"/>
+
+            <TextView
+                style="@style/GameRating"
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_title"
+                app:layout_constraintStart_toStartOf="@id/tv_review_title"
+                android:layout_marginTop="12dp"
+                tools:text="4.9"/>
+
+            <ImageView
+                android:id="@+id/iv_star_6"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_title"
+                app:layout_constraintStart_toEndOf="@id/tv_rating"
+                app:layout_constraintEnd_toStartOf="@id/iv_star_7"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="29dp"
+                android:src="@drawable/ic_star"/>
+
+            <ImageView
+                android:id="@+id/iv_star_7"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_star_6"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star_6"
+                app:layout_constraintStart_toEndOf="@id/iv_star_6"
+                app:layout_constraintEnd_toStartOf="@id/iv_star_8"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_star"/>
+
+            <ImageView
+                android:id="@+id/iv_star_8"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_star_6"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star_6"
+                app:layout_constraintStart_toEndOf="@id/iv_star_7"
+                app:layout_constraintEnd_toStartOf="@id/iv_star_9"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_star"/>
+
+            <ImageView
+                android:id="@+id/iv_star_9"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_star_6"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star_6"
+                app:layout_constraintStart_toEndOf="@id/iv_star_8"
+                app:layout_constraintEnd_toStartOf="@id/iv_star_10"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_star"/>
+
+            <ImageView
+                android:id="@+id/iv_star_10"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_star_6"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star_6"
+                app:layout_constraintStart_toEndOf="@id/iv_star_9"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_star"/>
+
+            <TextView
+                style="@style/GameReview.Count.Full"
+                android:id="@+id/tv_review_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/iv_star_6"
+                app:layout_constraintStart_toStartOf="@id/iv_star_6"
+                android:layout_marginTop="8dp"
+                tools:text="70M Reviews"/>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_count"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="13dp"
+                app:dividerColor="#1A1F29"/>
+
+            <ImageView
+                android:id="@+id/iv_avatar_1"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/avatar_user_1"/>
+
+            <TextView
+                style="@style/GameReview.Author"
+                android:id="@+id/tv_review_author_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                app:layout_constraintStart_toEndOf="@id/iv_avatar_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                tools:text="Auguste Conte"/>
+
+            <TextView
+                style="@style/GameReview.Date"
+                android:id="@+id/tv_review_date_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_author_1"
+                app:layout_constraintStart_toStartOf="@id/tv_review_author_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="7dp"
+                tools:text="February 14, 2019"/>
+
+            <TextView
+                style="@style/GameReview.Text"
+                android:id="@+id/tv_review_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/iv_avatar_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                tools:text="“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"/>
+
+            <ImageView
+                android:id="@+id/iv_avatar_2"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_1"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/avatar_user_2"/>
+
+            <TextView
+                style="@style/GameReview.Author"
+                android:id="@+id/tv_review_author_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_1"
+                app:layout_constraintStart_toEndOf="@id/iv_avatar_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                tools:text="Jang Marcelino"/>
+
+            <TextView
+                style="@style/GameReview.Date"
+                android:id="@+id/tv_review_date_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_author_2"
+                app:layout_constraintStart_toStartOf="@id/tv_review_author_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="7dp"
+                tools:text="February 14, 2019"/>
+
+            <TextView
+                style="@style/GameReview.Text"
+                android:id="@+id/tv_review_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/iv_avatar_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                tools:text="“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/InstallButton"
+                android:id="@+id/mb_install"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="36dp"
+                app:cornerRadius="12dp"
+                android:backgroundTint="#F4D144"
+                android:text="@string/install_btn"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_icon"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        app:layout_anchor="@id/spacer_icon_place"
+        app:layout_anchorGravity="bottom|start"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="24dp"
+        app:cardCornerRadius="14dp"
+        app:cardBackgroundColor="#1F2430"
+        app:layout_dodgeInsetEdges="bottom"
+        android:elevation="6dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_icon">
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon"/>
+
+        </FrameLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_anchor="@id/spacer_icon_place"
+        app:layout_anchorGravity="bottom"
+        app:layout_insetEdge="bottom"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
